@@ -11,7 +11,8 @@ function Navbar() {
     const[mobileView,setMobileView]=useState(false);
   return (
 
-    <div className=' h-[50px] bg-transparent backdrop-blur-xl flex items-center justify-between fixed z-30 w-full '>
+    <div className=' h-[50px] bg-transparent backdrop-blur-xl flex items-center justify-between fixed z-10 w-full
+    border-b-2 border-additional-100 '>
         <div className=' ml-2 flex items-center'>
        
         <RiMenuUnfoldFill className='md:hidden text-additional-100' size={20}
@@ -25,8 +26,8 @@ function Navbar() {
         </Link>
 
         {mobileView && (
-            <div className=' m-0 absolute w-screen top-0 left-0 h-[30%] bg-first-200 transition-all
-             ease-in-out duration-150 z-40'>
+            <div className=' m-0 relative w-screen top-10  left-[-110px] h-[30%] bg-first-200 transition-all
+             ease-linear  duration-150 z-[1000]'>
             <ul className='flex flex-col justify-center items-center gap-4 mt-10'>
             <Link to="./movies" className={linkStyle}>Movies</Link>
             <Link to="/shows" className={linkStyle}>Tv Shows</Link>

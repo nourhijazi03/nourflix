@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import {GoCircle} from "react-icons/go"
+import {GoCircle} from "react-icons/go";
+import FadeIn from "../Components/FadeIn";
 
 function ComingSoon({slide}) {
     const imgPath="https://image.tmdb.org/t/p/w500/";
@@ -10,19 +11,28 @@ function ComingSoon({slide}) {
         <div style={{backgroundImage:`url("${imgPath}${slide[slideIndex].backdrop_path}")`}}
         className='h-full w-full bg-no-repeat bg-cover flex flex-col justify-center bg-center'>
 
+            
             <div className='flex justify-between relative max-sm:flex-col-reverse'>
+            
                 <div className='backdrop-blur-sm w-3/6 ml-2 max-sm:w-[90%]'>
+                <FadeIn direction="down" duration={0.2}>
                 <h1 className='text-3xl font-bold text-additional-100'>{slide[slideIndex].title} 
                 <span className='ml-3 border-4 border-additional-100 rounded-full p-1 bg-black text-red-600
                 text-xl'>{(slide[slideIndex].vote_average).toString().slice(0,3)}</span></h1>
                 <p className='text-md text-red-950 font-semibold mt-1'>{slide[slideIndex].overview}</p>
+                </FadeIn>
                 </div>
+            
 
-                <div className='w-2/6 max-sm:w-[90%]'>
-                    <h1 className='text-4xl mr-3 font-extrabold text-first-100 '
+                
+                <div className='mr-3 w-2/6 max-sm:w-[90%]'>
+                <FadeIn duration={0.4} direction="left">
+                    <h1 className='text-4xl mr-3 font-extrabold text-first-100 w-full'
                     style={{textShadow:"4px 4px 4px #b68942"}}
                     >On: {slide[slideIndex].release_date}</h1>
+                    </FadeIn>
                 </div>
+                
 
             </div>
 

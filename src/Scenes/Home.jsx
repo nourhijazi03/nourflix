@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react';
 import ComingSoon from '../Components/ComingSoon';
 import Carousel from '../Components/Carousel';
+import FadeIn from '../Components/FadeIn';
 
 function Home() {
 
@@ -26,7 +27,7 @@ function Home() {
     .then((res)=>res.json())
     .then((data)=>setPopular(data.results));
   },[])
-  console.log(popular);
+
 
   //popular Series
   useEffect(()=>{
@@ -46,18 +47,20 @@ function Home() {
 
 
       <div id='popularMovies' className=' bg-first-200 p-3'>
+        <FadeIn duration={0.3} direction="right">
         <h1 className='text-additional-100 text-2xl font-semibold
         border-l-4 border-double border-additional-100 '>Popular Movies</h1>
-
-        <Carousel items={popular}/>
+        </FadeIn>
+        <Carousel items={popular} type="movie"/>
 
       </div>
 
       <div id='popularSeries' className='bg-first-200 p-3'>
+      <FadeIn duration={0.3} direction="right">
         <h1 className='text-additional-100 text-2xl font-semibold
         border-l-4 border-double border-additional-100 '>Popular Series</h1>
-
-        <Carousel items={popularS}/>
+      </FadeIn>
+        <Carousel items={popularS} type="tv"/>
 
       </div>
 
